@@ -1,0 +1,16 @@
+{
+    "editor.formatOnSave": true,
+    "toolchains": [
+        {
+            "name": "Clang",
+            "path": "C:/Program Files/clangd/bin",
+        },
+    ],
+    "lsp.clangd.compilation.databases": [],
+    "plugins": [
+        {
+            "type": "add",
+            "pluginName": "fleet.language.cpp"
+        }
+    ]
+}

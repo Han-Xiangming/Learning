@@ -1,10 +1,9 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int main() {
-    int arr[] = {5, 4, 3, 2, 1};
-    int len = sizeof(arr)/sizeof(arr[0]);
-    for (int i = 1; i < len; i++) {
+void insertionSort(vector<int> &arr) {
+    for (int i = 1; i < arr.size(); i++) {
         int base = arr[i];
         int j = i - 1;
         while (j >= 0 && arr[j] > base) {
@@ -13,8 +12,12 @@ int main() {
         }
         arr[j + 1] = base;
     }
-    for (int i = 0; i < len; i++) {
-        cout << arr[i] << " ";
+}
+int main() {
+    vector<int> arr = {5, 4, 3, 2, 1};
+    insertionSort(arr);
+    for (const auto &i : arr){
+        cout << i << " ";
     }
     return 0;
 }

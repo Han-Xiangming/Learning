@@ -1,41 +1,42 @@
 #include <iostream>
+#include <vector> 
 using namespace std;
 
-void swap(int *xp, int *yp) {
+void swap(vector<int>::iterator xp, vector<int>::iterator yp) {
     int temp = *xp;
     *xp = *yp;
     *yp = temp;
 }
 
-void quickSort(int arr[], int low, int high) {
+int partition(vector<int>& vec, int low, int high) {
+    int pivot = vec[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (vec[j] < pivot) {
+            i++;
+            swap(vec.begin() + i, vec.begin() + j);
+        }
+    }
+    swap(vec.begin() + i + 1, vec.begin() + high);
+    return (i + 1);
+}
+
+void quickSort(vector<int>& vec, int low, int high) {
     if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        int pi = partition(vec, low, high);
+        quickSort(vec, low, pi - 1);
+        quickSort(vec, pi + 1, high);
     }
 }
 
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = (low - 1);
-yb
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(&arr[i], &arr[j]);
-        }
-    }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-    }
-
 int main() {
-    int arr[] = {10, 7, 8, 9, 1, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    quickSort(arr, 0, n - 1);
+    vector<int> vec = {10, 7, 8, 9, 1, 5};
+    int n = vec.size();
+    quickSort(vec, 0, n - 1);
     cout << "Sorted array: \n";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    for (const auto& i : vec) {
+        cout << i << " ";
     }
     return 0;
 }

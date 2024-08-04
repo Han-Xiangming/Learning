@@ -1,20 +1,18 @@
 #include <iostream>
-#include <queue>
+#include <vector>
+#include <string>
 using namespace std;
+
 int main(){
-    int n,m,cnt = 0;cin >> n >> m;
-    queue<int> q;
-    for(int i=1;i<=n;i++) q.push(i);
-    while (q.size()>1){
-        cnt++;
-        if (cnt == m){
-            q.pop();
-            cnt = 0;
-        } else {
-            int tmp = q.front();
-            q.pop();
-            q.push(tmp);
-        }
+    string s; cin >> s;
+    int length = s.length();
+    cout << length << endl;
+    for (int i = 0; i < length; i++){
+        cout << s[i] ;
     }
-    cout << q.front();
+    cout << endl;
+    for (int i = length-1; i >= 0; i--){
+        cout << s[i] ;
+    }
+
 }

@@ -2,16 +2,16 @@
 #include <algorithm>
 using namespace std;
 int main(){
-    int n,a[105],dp[105];
-    cin>>n;
-    for (int i=1;i<=n;i++) cin>>a[i];
+    int n1,n2,a[105],b[105],dp[105][105];
+    cin>>n1;for (int i=1;i<=n1;i++) cin>>a[i];
+    cin>>n2;for (int i=1;i<=n2;i++) cin>>b[i];
     int ans=0;
-    for (int i=1;i<=n;i++){
-        dp[i]=1;
-        for (int j=1;j<i;j++){
-            if (a[j]<a[i]) dp[i]=max(dp[i],dp[j]+1);
+    for (int i=1;i<=n1;i++){
+        for (int j=1;j<=n2;j++){
+            dp[i][j]=(a[i]==b[j])?dp[i-1][j-1]+1:max(dp[i-1][j],dp[i][j-1]);
+            ans=max(ans,dp[i][j]);
         }
-        ans=max(ans,dp[i]);
+        
     }
     cout<<ans<<endl;
 }

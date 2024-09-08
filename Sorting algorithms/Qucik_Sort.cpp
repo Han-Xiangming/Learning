@@ -35,8 +35,6 @@ int main() {
     int n = vec.size();
     quickSort(vec, 0, n - 1);
     cout << "Sorted array: \n";
-    for (const auto& i : vec) {
-        cout << i << " ";
-    }
+    for (const auto& i : vec) cout << i << " ";
     return 0;
 }

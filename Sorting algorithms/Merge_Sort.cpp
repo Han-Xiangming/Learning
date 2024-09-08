@@ -10,23 +10,14 @@ void merge(vector<int>& vec, int left, int right) {
     vector<int> temp(right - left + 1);
     // 当两个数组都没有遍历完时，比较元素大小并合并
     while (i <= mid && j <= right) {
-        if (vec[i] <= vec[j]) {
-            temp[k++] = vec[i++];
-        } else {
-            temp[k++] = vec[j++];
-        }
+        if (vec[i] <= vec[j]) temp[k++] = vec[i++];
+        else temp[k++] = vec[j++];
     }
     // 处理剩余元素
-    while (i <= mid) {
-        temp[k++] = vec[i++];
-    }
-    while (j <= right) {
-        temp[k++] = vec[j++];
-    }
+    while (i <= mid) temp[k++] = vec[i++];
+    while (j <= right) temp[k++] = vec[j++];
     // 将合并后的结果复制回原数组
-    for (int i = 0; i < right - left + 1; i++) {
-        vec[left + i] = temp[i];
-    }
+    for (int i = 0; i < right - left + 1; i++) vec[left + i] = temp[i];
     return;
 }
 
@@ -45,8 +36,6 @@ int main() {
     // 调用归并排序函数对数组进行排序
     mergeSort(vec, 0, len - 1);
     // 打印排序后的结果
-    for (const int& i : vec) {
-        cout << i << " ";
-    }
+    for (const int& i : vec) cout << i << " ";
     return 0;
 }

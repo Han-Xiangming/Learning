@@ -14,19 +14,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         int s;
         cin >> s;
-        if (s >= 0 && s <= 100) { // 确保输入在有效范围内
-            buckets[s]++;
-        } else {
-            cout << "Invalid input: " << s << ". Skipping this element." << endl;
-        }
+        if (s >= 0 && s <= 100) buckets[s]++;
+        else cout << "Invalid input: " << s << ". Skipping this element." << endl;
     }
 
     // 输出排序后的元素
-    for (int i = 0; i < buckets.size(); i++) {
-        for (int j = 0; j < buckets[i]; j++) {
-            cout << i << " ";
-        }
-    }
+    for (int i = 0; i < buckets.size(); i++) for (int j = 0; j < buckets[i]; j++) cout << i << " ";
     cout << endl;
 
     return 0;

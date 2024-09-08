@@ -31,4 +31,4 @@
 *.out
 *.app
 
-/demp.cpp
+demo.cpp

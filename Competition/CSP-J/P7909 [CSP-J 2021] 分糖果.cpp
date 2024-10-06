@@ -4,8 +4,7 @@ using namespace std;
 int main(){
     ll n,L,R,ans=0;
     cin>>n>>L>>R;
-    for (int i = L;i<=R;i++){
-        ans = max(ans,i%n);
-    }
+    if (L/n != R/n) ans = n-1;
+    else ans = R%n;
     cout << ans << endl;
 }

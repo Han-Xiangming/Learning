@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define ll long long
+#define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
 using namespace std;
 int main(){
     ll a,b,sum=1;

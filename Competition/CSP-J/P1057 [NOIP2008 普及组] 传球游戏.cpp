@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
 #define ll long long
 ll n,m,dp[35][35];
 int main(){

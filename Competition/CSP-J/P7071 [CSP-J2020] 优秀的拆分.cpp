@@ -1,7 +1,6 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
+#define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
 #define ll long long
 ll a[23],n,i=0;
 int main() {

@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
-#define ll long long
 using namespace std;
+#define ll long long
+#define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
 int main(){
     ll n,day=0,ans=0;
     cin>>n;

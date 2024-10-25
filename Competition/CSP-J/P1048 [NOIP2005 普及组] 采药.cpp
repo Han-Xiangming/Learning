@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
 int w[105], val[105];
 int dp[105][1005];
 int main()

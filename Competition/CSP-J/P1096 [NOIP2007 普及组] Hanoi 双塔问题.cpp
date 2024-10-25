@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-    optimition
+    optimition;
     // file(1)
     int n;
     cin>>n;

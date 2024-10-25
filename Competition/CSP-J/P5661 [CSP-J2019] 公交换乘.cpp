@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
+#define optimition ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 #define ll long long
 struct ticket
 {
@@ -8,8 +9,7 @@ struct ticket
     bool used = 0;
 }t[100010];
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+    optimition;
     ll n,way,price,time;
     ll ans=0,cnt=0,idx=1;
     cin >> n;

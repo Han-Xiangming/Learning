@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define file(x) freopen(#x".in",'r',stdin),freopen(#x".out",'w',stdout);
+#define optimition ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 #define ll long long
 ll a[23],n,i=0;
 int main() {
+    optimition;
     cin >> n;
     if (n&1){
         cout << -1;

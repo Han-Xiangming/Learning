@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
+#define optimition ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int w[105], val[105];
 int dp[105][1005];
-int main()
-{
+int main(){
+    optimition;
     int t, m, res = -1;
     cin >> t >> m;
     for (int i = 1; i <= m; i++) cin >> w[i] >> val[i];

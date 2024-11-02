@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-int w[105], val[105];
-int dp[105][1005];
-int main(){
-    int t, m, res = -1;
-    cin >> t >> m;
-    for (int i = 1; i <= m; i++) cin >> w[i] >> val[i];
-    for (int i = 1; i <= m; i++)
-        for (int j = t; j >= 0; j--){
-            if (j >= w[i]) dp[i][j] = max(dp[i - 1][j - w[i]] + val[i], dp[i - 1][j]);
-            else dp[i][j] = dp[i - 1][j];
-        }
-    cout << dp[m][t];
+#define ll long long
+
+bool is_prime(ll n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (ll i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0) 
+            return false;
+    return true;
+}
+int main() {
+    ll n;
+    cin >> n;
+    cout << ((is_prime(n))?"YES":"NO");
     return 0;
 }

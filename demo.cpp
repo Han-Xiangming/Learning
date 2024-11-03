@@ -1,25 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
 #define ll long long
+#define pb push_back
 
-bool is_prime(ll n) {
-    if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    for (ll i = 5; i * i <= n; i = i + 6)
-        if (n % i == 0 || n % (i + 2) == 0) 
-            return false;
-    return true;
+vector<int> v;
+
+bool cmp(int a,int b){
+    return a>b;
 }
-int main() {
+int main(){
+    // file(a);
     ll n;
-    cin >> n;
-    cout << ((is_prime(n))?"YES":"NO");
-    return 0;
-}
-int main() {
-    int n;
-    cin >> n;
-    cout << ((is_prime(n))?"YES":"NO");
-    return 0;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        ll x;
+        cin>>x;
+        v.pb(x);
+    }
+    sort(v.begin(),v.end(),cmp);
+    auto new_end = unique(v.begin(),v.end());
+    v.erase(new_end,v.end());
+    for(auto i:v) cout<<i<<" ";
+    cout<<endl;
 }

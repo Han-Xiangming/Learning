@@ -17,3 +17,9 @@ int main() {
     cout << ((is_prime(n))?"YES":"NO");
     return 0;
 }
+int main() {
+    int n;
+    cin >> n;
+    cout << ((is_prime(n))?"YES":"NO");
+    return 0;
+}

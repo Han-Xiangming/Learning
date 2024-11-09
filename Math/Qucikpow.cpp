@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define file(x) freopen(x".in","r",stdin),freopen(x".out","w",stdout);
+#define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
 
 ll quickpow(ll a, ll b, ll mod) {
     ll ret = 1;

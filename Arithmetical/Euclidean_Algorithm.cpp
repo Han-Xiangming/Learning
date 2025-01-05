@@ -8,6 +8,7 @@ int gcd(ll a, ll b){
 
 int main(){
     ll a,b; cin>>a>>b;
+    if (a<b) swap(a,b);
     cout<< gcd(a,b) <<endl;
     return 0;
 }

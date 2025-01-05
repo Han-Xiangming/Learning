@@ -1,26 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
-#define ll long long
-#define pb push_back
-
-vector<int> v;
-
-bool cmp(int a,int b){
-    return a>b;
-}
+queue<int> q;
 int main(){
-    // file(a);
-    ll n;
-    cin>>n;
-    for(int i=0;i<n;i++){
-        ll x;
-        cin>>x;
-        v.pb(x);
+    // ÅÅ¶Ó´òÕë
+    int n;
+    cin >> n;
+    for (int i = 1;i<=n;i++){
+        q.push(i);
     }
-    sort(v.begin(),v.end(),cmp);
-    auto new_end = unique(v.begin(),v.end());
-    v.erase(new_end,v.end());
-    for(auto i:v) cout<<i<<" ";
-    cout<<endl;
+    while(!q.empty()){
+        int x = q.front();
+        cout << x << " ";
+        q.pop();
+        int temp = q.front();
+        q.pop();
+        q.push(temp);
+    }
+    return 0;
 }

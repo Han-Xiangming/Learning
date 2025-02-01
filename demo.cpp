@@ -1,20 +1,17 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-queue<int> q;
+#define ll long long
+ll qucik_pow(int a,int b,int p){
+    ll ret=1;
+    while(b){
+        if (b%2==1) ret=ret*a%p;
+        a=a*a%p;
+        b /= 2;
+    }
+    return ret;
+}
 int main(){
-    // ÅÅ¶Ó´òÕë
-    int n;
-    cin >> n;
-    for (int i = 1;i<=n;i++){
-        q.push(i);
-    }
-    while(!q.empty()){
-        int x = q.front();
-        cout << x << " ";
-        q.pop();
-        int temp = q.front();
-        q.pop();
-        q.push(temp);
-    }
-    return 0;
+    ll a,b,p;
+    cin >> a >> b >> p;
+    cout << a << '^' << b << " mod " << p << '=' << qucik_pow(a,b,p);
 }

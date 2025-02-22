@@ -1,17 +1,48 @@
 #include <iostream>
+#include <queue>
 using namespace std;
-#define ll long long
-ll qucik_pow(int a,int b,int p){
-    ll ret=1;
-    while(b){
-        if (b%2==1) ret=ret*a%p;
-        a=a*a%p;
-        b /= 2;
+
+int a[101][101]; // 地图数组
+int n, m;
+int di[4] = {0, 1, 0, -1}, dj[4] = {1, 0, -1, 0}; // 方向数组
+
+void bfs(int i, int j)
+{
+    queue<pair<int, int>> q;
+    q.push({i, j}); 
+    a[i][j] = 0;
+    while (!q.empty()) {
+        int x = q.front().first, y = q.front().second; 
+        for (int k = 0; k < 4; k++){
+            int nx = x + di[k];
+            int ny = y + dj[k];
+            if (nx >= 1 && nx <= n && ny >= 1 && ny <= m && a[nx][ny] == 1)
+            {
+                q.push({nx, ny}); 
+                a[nx][ny] = 0;
+            }
+        }
+        q.pop();
     }
-    return ret;
 }
-int main(){
-    ll a,b,p;
-    cin >> a >> b >> p;
-    cout << a << '^' << b << " mod " << p << '=' << qucik_pow(a,b,p);
+
+int main()
+{
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= m; j++){
+            cin >> a[i][j];
+        }
+    }
+    int cnt = 0;
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= m; j++){
+            if (a[i][j] == 1){
+                cnt++;
+                bfs(i, j);
+            }
+        }
+    }
+    cout << cnt;
+    return 0;
 }

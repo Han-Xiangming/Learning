@@ -95,5 +95,5 @@ function TrexRunnerBot() {
     return { conquerTheGame: conquerTheGame };
 }
 
-let bot = TrexRunnerBot(); 
+let bot = TrexRunnerBot();
 let botInterval = setInterval(bot.conquerTheGame, 2);

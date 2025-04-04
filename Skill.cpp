@@ -2,7 +2,7 @@
 using namespace std;
 #define ios ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 #define _rep(i,a,b) for(int i=a;i<=b;i++)
-#define file(x) freopen(x".in","r",stdin),freopen(x".out","w",stdout)
+#define file(x) freopen(#x".in","r",stdin),freopen(#x".out","w",stdout);
 
 inline int read(){
     int x=0,f=1;char c=getchar();

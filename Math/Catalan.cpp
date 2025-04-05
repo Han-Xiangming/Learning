@@ -1,7 +1,19 @@
 #include <iostream>
 using namespace std;
+int read(){
+	int x=0,f=1;
+	char c=getchar();
+	while(c<'0'||c>'9'){if(c=='-')f=-1;c=getchar();}
+	while(c>='0'&&c<='9'){x=(x<<1)+(x<<3)+c-'0';c=getchar();}
+	return x*f;
+}
 
-// 计算第 n 个卡特兰数
+inline void write(int x){
+    if(x<0)putchar('-'),x=-x;
+    if(x>9)write(x/10);
+    putchar(x%10+'0');
+}
+
 long long catalan(int n) {
 	if (n == 0 || n == 1) {
 		return 1;
@@ -16,13 +28,7 @@ long long catalan(int n) {
 }
 
 int main() {
-	int n;
-	cout << "请输入一个非负整数 n 来计算第 n 个卡特兰数: ";
-	cin >> n;
-	if (n < 0) {
-		cout << "输入的 n 必须是非负整数。" << endl;
-	} else {
-		cout << "第 " << n << " 个卡特兰数是: " << catalan(n) << endl;
-	}
+	int n=read();
+	write(catalan(n));
 	return 0;
-}    
+}

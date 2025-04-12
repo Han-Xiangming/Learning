@@ -2,7 +2,9 @@
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "disabled",
     "terminal.integrated.shellArgs.windows": ["-nologo"],
-    "terminal.integrated.automationProfile.windows": { "shell": "powershell.exe", "args": ["-NoLogo"] },
+    "terminal.integrated.automationProfile.windows": {
+
+     "shell": "powershell.exe", "args": ["-NoLogo"],"cps": "cp65001"},
     "files.associations": {
         "array": "cpp",
         "string_view": "cpp",

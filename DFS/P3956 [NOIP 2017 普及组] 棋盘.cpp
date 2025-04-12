@@ -23,8 +23,8 @@ void dfs(int x,int y,int s,bool magic){
 
 int main(){
     cin>>m>>n;
-    memset(a,-1,sizeof(a));
-    memset(dis,0x3f,sizeof(dis));
+    memset(a,-1,sizeof a);
+    memset(dis,0x3f,sizeof dis);
     _rep(i,1,n){
         int x,y,c;
         cin>>x>>y>>c;

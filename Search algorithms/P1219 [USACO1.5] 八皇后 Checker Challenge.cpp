@@ -11,7 +11,7 @@ int read(){
 void dfs(int line){
     if (line > n){
         if (++sum>3) return;
-        else {
+        if (1) {
             for (int i=1;i<=n;i++) cout << ans[i] << " ";
             cout << '\n';
             return;

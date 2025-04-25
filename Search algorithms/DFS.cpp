@@ -1,68 +1,71 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
-// 定义两个二维数组，用于表示迷宫的地图和探索状态
-int a[105][105],b[105][105], n;
-// 定义布尔变量f，用于标记是否找到出口
-bool f=false;
-// 定义四个方向的行列偏移量，用于探索周围的格子
-int di[5] = {-1,0,1,0},dj[5] = {0,1,0,-1}; 
 
-// 深度优先搜索函数，用于探索从当前位置(i, j)开始的路径
-void dfs(int i, int j)
-{
-    // 如果当前位置是终点，设置f为true并返回
-    if(a[i][j]==2)
-    {
-        f=true;
-        return; 
-    }
-    // 遍历四个方向
-    for (int k = 0; k < 4; k++){
-        // 计算新的位置
-        int ni = i + di[k], nj = j + dj[k];
-        // 如果新的位置有效且不是墙，并且没有被探索过
-        if(ni >= 1 && ni <= n && nj >= 1 && nj <= n && a[ni][nj] != 1 && b[ni][nj] == 0)
-        {
-            // 标记新的位置为已探索
-            b[ni][nj] = 1;
-            // 递归探索新的位置
-            dfs(ni,nj);
-            // 回溯，重置新的位置的探索状态
-            b[ni][nj] = 0;
-        }
-    }
-} 
+int n, k;
+vector<int> nums;
+int result = 0;
 
-// 主函数
-int main()
-{
-    // 读取迷宫的大小
-    cin>>n;
-    // 读取迷宫的地图
-    for(int i = 1; i <= n; i++)
-    {
-        for(int j = 1; j <= n; j++)
-        {
-            cin >> a[i][j];
+long long pow_mod(long long a, long long d, long long mod) {
+    long long result = 1;
+    a = a % mod;
+    while (d > 0) {
+        if (d % 2 == 1) {
+            result = (result * a) % mod;
         }
+        a = (a * a) % mod;
+        d /= 2;
     }
-    // 如果起点就是终点，直接输出"yes"并结束程序
-    if(a[1][1] == 2)
-    {
-        cout << "yes";
-        return 0;
-    } else {
-        // 标记起点为已探索
-        b[1][1] = 1;
-        // 从起点开始深度优先搜索
-        dfs(1,1);
-        // 根据f的值输出结果
-        cout << (f ? "yes" : "no");
+    return result;
+}
+
+bool is_prime(long long n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0) return false;
+    long long d = n - 1;
+    int s = 0;
+    while (d % 2 == 0) {
+        d /= 2;
+        s++;
+    }
+    vector<int> bases = {2, 3, 5, 7, 11, 13, 17};
+    for (int a : bases) {
+        if (a >= n) continue;
+        long long x = pow_mod(a, d, n);
+        if (x == 1 || x == n - 1) continue;
+        bool possible = false;
+        for (int r = 1; r < s; r++) {
+            x = (x * x) % n;
+            if (x == n - 1) {
+                possible = true;
+                break;
+            }
+        }
+        if (!possible) return false;
+    }
+    return true;
+}
+
+void backtrack(int start, int count, long long sum) {
+    if (count == k) {
+        if (is_prime(sum)) {
+            result++;
+        }
+        return;
+    }
+    for (int i = start; i < n; i++) {
+        backtrack(i + 1, count + 1, sum + nums[i]);
     }
 }
 
-
-// 3
-// 0 1 0
-// 0 0 0
-// 0 1 2
+int main() {
+    cin >> n >> k;
+    nums.resize(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    backtrack(0, 0, 0);
+    cout << result << endl;
+    return 0;
+}

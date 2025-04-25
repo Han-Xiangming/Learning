@@ -1,11 +1,21 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int n,ans[20]={1};
-void dfs(int d,int s){
-    if(s==n){
-        cout << ans[1];
-        for(int i=2;i<d;i++){
-            
+
+int main() {
+    int n, L, R;
+    cin >> n >> L >> R;
+
+    int max = R % n;
+
+    if (max != n - 1) {
+        for (int k = R; k >= L; --k) {
+            if (k % n == n - 1) {
+                max = n - 1;
+                break;
+            }
         }
     }
+
+    cout << max << endl;
+    return 0;
 }

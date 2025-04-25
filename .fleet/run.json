@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Example Build",
+            "program": "g++",
+            "args": ["$FILE$","-o","$FILE_DIR$\\$FILE_NAME_NO_EXT$.exe","-std=c++23"]
+        },
+        {
+            "type": "command",
+            "name": "Example Run",
+            "program": "$FILE_DIR$\\$FILE_NAME_NO_EXT$.exe",
+        },
+    ]
+}

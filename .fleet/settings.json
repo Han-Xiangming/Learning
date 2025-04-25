@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        {
+            "type": "add",
+            "pluginName": "fleet.language.cpp"
+        },
+        {
+            "type": "add",
+            "pluginName": "fleet.image.view"
+        }
+    ],
+}

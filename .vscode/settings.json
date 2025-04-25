@@ -1,6 +1,9 @@
 {
     "cmake.configureOnOpen": false,
     "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.default.compilerPath": "C:\\Tools\\Gcc\\mingw64\\bin\\g++.exe",
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c23",
     "terminal.integrated.shellArgs.windows": ["-nologo"],
     "terminal.integrated.automationProfile.windows": {
 
